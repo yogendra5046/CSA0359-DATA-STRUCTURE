@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define maxsize 100
+int list[maxsize];
+int cap=0;
+void read(){
+	if(cap==0){
+		printf("list is empty");
+	}
+	else{
+		printf("elements in list are: ");
+		for(int i=0;i<cap;i++){
+			printf("%d ",list[i]);
+		}
+printf("\n");
+	}
+}
+void ins(int data){
+	if(cap==maxsize){
+		printf("list is full element cannot be inserted ");
+	}
+	else{
+		list[cap++]=data;
+		printf("entered element is %d\n",data);
+	}
+}
+void del(){
+	if(cap==0){
+		printf("list is empty elements cannot be deleted ");
+	}else{
+		printf("elemnts after deletion: \n",list[0]);
+		for(int i=0;i<cap-1;i++){
+	list[i]=list[i+1];
+		}
+		cap--;
+	}
+}
+int main(){
+	ins (3);
+	ins (4);
+	ins (5);
+	read();
+	del();
+	read();
+	ins (9);
+	read();
+}
