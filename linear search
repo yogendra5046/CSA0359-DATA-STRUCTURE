@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main(){
+	int a[50],i,s,t;
+	printf("enter the size of the array");
+	scanf("%d",&s);
+	printf("enter the elemnts in the array");
+	for(i=0;i<s;i++){
+		scanf("%d",&a[i]);
+	}
+	printf("enter the element to search");
+	scanf("%d",&t);
+	for(i=0;i<s;i++){
+		if(a[i]==t)
+		printf("%d element found at %d index: ",t,i);
+	}
+}
