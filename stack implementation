@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_SIZE 5
+struct stack {
+    int items[MAX_SIZE];
+    int top;
+};
+
+void read(struct stack stack1) {
+    stack1.top = -1;
+}
+
+int isEmpty(struct stack stack1) {
+    return stack1.top == -1;
+}
+
+int isFull(struct stack stack1) {
+    return stack1.top == MAX_SIZE - 1;
+}
+void push(struct stack *stack1, int value) {
+    if (isFull(*stack1)) {
+        printf("Stack overflow! Cannot push %d\n", value);
+    } else {
+        stack1->items[++stack1->top] = value;
+        printf("%d pushed to the stack\n", value);
+    }
+}
+int pop(struct stack *stack1) {
+    if (isEmpty(*stack1)) {
+        printf("Stack underflow! Cannot pop from an empty stack\n");
+        return -1; 
+    } else {
+        return stack1->items[stack1->top--];
+    }
+}
+
+int peek(struct stack stack1) {
+    if (isEmpty(stack1)) {
+        printf("Stack is empty\n");
+        return -1; 
+    } else {
+        return stack1.items[stack1.top];
+    }
+}
+
+int main() {
+    struct stack stack1;
+    read(stack1);
+    push(&stack1, 10);
+    push(&stack1, 20);
+    push(&stack1, 30);
+    printf("Top element: %d\n", peek(stack1));
+    printf("Popped element: %d\n", pop(&stack1));
+
+    return 0;
+}
