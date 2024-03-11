@@ -1,0 +1,31 @@
+#include<stdio.h>
+int main(){
+	int a[50];
+	int pos,i,s,v,p;
+	printf("enter the size of array:");
+	scanf("%d",&s);
+	printf("enter elemnts in array:");
+	for(i=0;i<s;i++){
+		scanf("%d",&a[i]);
+	}
+	printf("enter the position of element to delete");
+	scanf("%d",&pos);
+	for(i=pos;i<s;i++){
+	a[i]=a[i+1];}
+	printf("array after deleting element : ");
+		for(i=0;i<s-1;i++){	
+		printf("%d ",a[i]);
+	}
+		 printf("enter the position where you want to insert the element:");
+   scanf("%d",&p);
+		 printf("enter the value into that poition:");
+   scanf("%d",&v);
+   for(i=s-1 ;i>=s-1;i--)
+      a[i+1]=a[i];
+   a[p-1]= v;
+   printf("final array after inserting the value is");
+   for(i=0;i<=s;i++)
+      printf("%d",a[i]);
+		
+		
+}
