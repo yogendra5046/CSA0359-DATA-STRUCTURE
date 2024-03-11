@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 5
+int queue[size];
+int rear=-1,front=-1;
+void en(int val){
+	if(rear==size-1){
+		printf("queue is full");
+	}else{
+		if(front ==-1){
+			front = 0;
+		}
+		queue [++rear]=val;
+		printf("%d enqued to the queue \n",val);
+		
+	}
+}
+void de(){
+	if(front ==-1){
+		printf("queue is empty ");
+	}else{
+		printf("%d dequed from queue\n ",queue[front]);
+		front++;
+	}
+}
+void display(){
+	if(front==-1){
+		printf("queue is empty ");
+	}else{
+		printf("queue elemnts are ");
+		for(int i=front ;i<=rear;i++){
+			printf(" %d ",queue[i]);
+		}
+		printf("\n");
+	}
+}
+int main(){
+	en(21);
+	en(67);
+	en(89);
+	display();
+	de();
+	display();
+	en(15);
+	en(30);
+	en(52);
+	display();
+	de();
+	de();
+	de();
+	de();
+	display();
+}
