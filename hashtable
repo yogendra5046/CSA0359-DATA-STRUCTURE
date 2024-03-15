@@ -1,0 +1,35 @@
+#include <stdio.h>
+#define SIZE 7
+int hash(int key) {
+    return key % SIZE;
+}
+void insert(int hash_table[], int key) {
+    int index = hash(key);
+    while (hash_table[index] != -1) {
+        index = (index + 1) % SIZE;
+    }
+    hash_table[index] = key;
+}
+void display(int hash_table[]) {
+    printf("Hash Table:\n");
+    for (int i = 0; i < SIZE; i++) {
+        printf("Index %d: ", i);
+        if (hash_table[i] == -1)
+            printf("Empty\n");
+        else
+            printf("%d\n", hash_table[i]);
+    }
+}
+int main() {
+    int hash_table[SIZE];
+    for (int i = 0; i < SIZE; i++) {
+        hash_table[i] = -1;
+    }
+    int keys[] = {50, 700, 76, 85, 92, 73, 101};
+    int num_keys = sizeof(keys) / sizeof(keys[0]);
+    for (int i = 0; i < num_keys; i++) {
+        insert(hash_table, keys[i]);
+    }
+    display(hash_table);
+    return 0;
+}
